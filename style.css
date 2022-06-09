@@ -1,0 +1,226 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box; 
+}
+
+:root {
+    --bg-color-primary: #1b263b;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #adb5bd;
+    font-family: monospace;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.keyboard {
+    background-color: var(--bg-color-primary);
+    min-height: 410px;
+    min-width: 800px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+    padding: 1rem;
+}
+
+.keyboard__text {
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 1rem;
+    background-color: var(--bg-color-primary);
+    border: transparent;
+    color: #6A95E6;
+    box-shadow: inset 6px 6px 8px #162031,
+    inset -4px -4px 8px #202c45;
+    border-radius: 10px;
+}
+
+.keys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.keys button {
+    min-height: 50px;
+    min-width: 50px;
+    font-size: 1.3rem;
+    background: var(--bg-color-primary);
+    border: transparent;
+    color: #adb5bd;
+    box-shadow:   6px 6px 8px #162031,
+    -4px -4px 8px #202c45;
+    border: 1px solid var(--bg-color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+}
+
+
+.line-1, .line-2, .line-3 {
+    margin-top: 1.3rem;
+}
+
+.line-2 {
+    padding: 0 4.5rem;
+}
+
+.space {
+    width: 60%;
+    height: 50px;
+    margin: 0 auto;    
+    background: var(--bg-color-primary);
+    border: transparent;
+    box-shadow:   6px 6px 8px #162031,
+    -4px -5px 8px #202c45;
+    border: 1px solid var(--bg-color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #adb5bd;
+    transition: all .3s ease-in-out;
+
+}
+
+.space-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.3rem;   
+}
+
+h1 {
+    color: #2D4761;
+    padding: .85rem;
+    position: absolute;
+    top: 10%;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%) scaleY(0);
+    right: -5px;
+    height: 50%;
+    width: 2px;
+    background-color: #2D4761;
+    animation: typeIndicator .7s  infinite;
+}
+
+.pressed {
+    box-shadow: inset 6px 6px 8px #162031,
+    inset -4px -4px 8px #202c45 !important;
+    color: #6A95E6!important;
+}
+
+@keyframes typeIndicator {
+    to {
+        transform: translateY(-50%) scaleY(1);
+    }
+}
+
+.toggle {
+    position: relative;
+    background: #fff;
+    height: 20px;
+    width: 50px;
+    margin-top: 1rem;
+    margin-right: auto;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+}
+
+.toggle::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background: #adb5bd;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3px;
+    transition: all .3s ease-in-out;
+
+}
+
+.toggled::after {
+    left: 32px;
+    transition: all .3s ease-in-out;
+    background: #fff;
+
+}
+
+.toggled {
+    background-color: #6A95E6;
+    transition: all .3s ease-in-out;
+}
+
+.led  {
+    box-shadow: 0px 0px 7px #6A95E6!important;
+    transition: all .3s ease-in-out;
+}
+
+.led-red {
+    box-shadow: 0px 0px 7px #e66a6a!important;
+    transition: all .3s ease-in-out;
+}
+
+.led-green {
+    box-shadow: 0px 0px 7px #74e66a!important;
+    transition: all .3s ease-in-out;
+}
+
+
+.choose {
+    margin-top: 1rem;
+    margin-right: auto;
+    color: #2D4761;
+    background-color: #fff;
+    min-height: 80px;
+    padding: .75rem;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease-in-out;
+
+}
+
+.colors {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.colors span {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.colors span:nth-child(1) {
+    background-color: #e66a6a!important;
+}
+
+.colors span:nth-child(2) {
+    background-color: #74e66a!important;
+}
+
+.show-choose {
+    opacity: 1;
+    pointer-events: all;
+    transition: all .3s ease-in-out;
+}
+
